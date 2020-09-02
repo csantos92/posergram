@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+//Imports
 use Illuminate\Http\Request;
 use App\Image;
 
@@ -14,6 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        //Check if user is identified
         $this->middleware('auth');
     }
 
@@ -24,6 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //Show 5 images per page
         $images = Image::orderBy('id', 'desc')->paginate(5);
 
         return view('home', [

@@ -8,16 +8,17 @@ class Image extends Model
 {
     protected $table = 'images';
 
-    //Relación uno a muchos
+    //One to many
     public function comments(){
         return $this->hasMany('App\Comment')->orderBy('id', 'desc');
     }
 
+    //One to many
     public function likes(){
         return $this->hasMany('App\Like');
     }
 
-    //Relación muchos a uno
+    //Many to one
     public function user(){
         return $this->belongsTo('App\User', 'user_id');
     }
